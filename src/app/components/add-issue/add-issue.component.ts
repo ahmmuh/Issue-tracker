@@ -7,12 +7,11 @@ import { Issue } from 'src/app/models/issue/Issue';
   styleUrls: ['./add-issue.component.css']
 })
 export class AddIssueComponent implements OnInit {
-  model = new Issue(1,"Går ej att starta","Det har varit mycket som strular","Low","Bug")
+  model = new Issue(1,"","","Low","")
   submitted = false;
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.model.priority)
   }
 
   submitIssue(){

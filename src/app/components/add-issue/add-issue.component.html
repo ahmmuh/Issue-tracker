@@ -1,27 +1,44 @@
 <div class="container">
     <h5>Skicka felanmäl till oss</h5>
-    <form (ngSubmit)="submitIssue()">
+    <form (ngSubmit)="submitIssue()" #issueForm="ngForm">
         <div class="form-group">
-            <span class="input-group-text">Title</span>
-            <input type="text" aria-label="title" required name="title" [(ngModel)]="model.title" class="form-control">
+            <span>Title</span>
+            <input type="text" aria-label="title" #title="ngModel" required name="title" [(ngModel)]="model.title" class="form-control">
+            <div [hidden]="issueForm.valid || issueForm.pristine"
+     class="alert alert-danger">
+  Title is required
+</div>
         </div>
         <div class="mb-3">
-            <span class="input-group-text">Beskrivning</span>
-            <textarea class="form-control" id="description" rows="3"
+            <span >Beskrivning</span>
+            <textarea class="form-control" required id="description" rows="3"
             name="description" [(ngModel)]="model.description"></textarea>
+            <div [hidden]="issueForm.valid || issueForm.pristine"
+            class="alert alert-danger">
+             Description is required
+       </div>
         </div>
         <h6>Priority?</h6>
-        <select class="form-select">
-            <option value="1" [(ngModel)]="model.priority">Low</option>
+        <select class="form-select" required name="priority"
+          [(ngModel)]="model.priority" >
+            <option value="1">Low</option>
             <option value="2">Medium</option>
             <option value="3">Heigh</option>
+            <div [hidden]="issueForm.valid || issueForm.pristine"
+            class="alert alert-danger">
+            Priority is required
+       </div>
         </select>
         <h6>IssueType?</h6>
-        <select class="form-select">
-            <option value="1" [(ngModel)]="model.issueType">Feature</option>
+        <select class="form-select" required  name="issueType" [(ngModel)]="model.issueType">
+            <option value="1" >Feature</option>
             <option value="2">Bug</option>
             <option value="3">Documentation</option>
+            <div [hidden]="issueForm.valid || issueForm.pristine"
+            class="alert alert-danger">
+            IssueType is required
+       </div>
         </select>
-        <button type="button" class="btn btn-secondary mt-3">Skicka</button>
+        <button type="button" class="btn btn-secondary mt-3" [disabled]="!issueForm.form.valid">Skicka</button>
     </form>
 </div>
