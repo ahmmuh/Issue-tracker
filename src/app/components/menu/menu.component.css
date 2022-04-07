@@ -1,0 +1,15 @@
+
+
+.navbar{
+    border-bottom: 2px solid #2222;
+    box-shadow: 2px 2px 2px #0cb;
+}
+.nav-link {color: rgb(19, 11, 11);}
+
+.navbar-brand{
+    font-style: oblique;
+    color: rgb(107, 95, 95);
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 2px 3px 2px rgb(112, 136, 89);
+}

@@ -1,0 +1,27 @@
+<div class="container">
+    <h5>Skicka felanmäl till oss</h5>
+    <form (ngSubmit)="submitIssue()">
+        <div class="form-group">
+            <span class="input-group-text">Title</span>
+            <input type="text" aria-label="title" required name="title" [(ngModel)]="model.title" class="form-control">
+        </div>
+        <div class="mb-3">
+            <span class="input-group-text">Beskrivning</span>
+            <textarea class="form-control" id="description" rows="3"
+            name="description" [(ngModel)]="model.description"></textarea>
+        </div>
+        <h6>Priority?</h6>
+        <select class="form-select">
+            <option value="1" [(ngModel)]="model.priority">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">Heigh</option>
+        </select>
+        <h6>IssueType?</h6>
+        <select class="form-select">
+            <option value="1" [(ngModel)]="model.issueType">Feature</option>
+            <option value="2">Bug</option>
+            <option value="3">Documentation</option>
+        </select>
+        <button type="button" class="btn btn-secondary mt-3">Skicka</button>
+    </form>
+</div>
